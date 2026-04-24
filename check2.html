@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<script>
+window.onload = function() {
+
+    const params = new URLSearchParams(window.location.search);
+    const answer = params.get("answer") || "";
+
+    // نحول النص إلى حروف صغيرة للمقارنة
+    const text = answer.toLowerCase();
+
+    // كلمات مفتاحية بسيطة للتقييم
+    const hasNabi = text.includes("تشريع") || text.includes("رسالة");
+    const hasRasool = text.includes("رسول") || text.includes("تبليغ");
+    const hasWahy = text.includes("الوحي") || text.includes("جبريل");
+
+    if(hasNabi && hasRasool && hasWahy){
+        window.location.href = "correct2.html";
+    } else {
+        window.location.href = "wrong2.html";
+    }
+}
+</script>
+
+</head>
+<body></body>
+</html>
